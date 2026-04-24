@@ -62,7 +62,7 @@
 <body>
   <div class="header">
     <h1>Privacy Policy</h1>
-    <p>Last updated: March 7, 2026</p>
+    <p>Last updated: April 24, 2026</p>
   </div>
   <div class="content">
     <a href="index.html" class="back">&larr; Back to Legal</a>
@@ -92,8 +92,16 @@
     <ul>
       <li><strong>Music Services:</strong> If you connect Spotify or Apple Music, we may access playlist and listening data to power music-based features. We do not store your streaming credentials.</li>
       <li><strong>Authentication:</strong> If you sign in via third-party providers (e.g., Apple, Google), we receive basic profile information as permitted by your settings.</li>
+      <li><strong>AI Services:</strong> VibeDrop uses artificial intelligence to power certain features. When you use AI-powered features (such as the Vibe Guide, mood-based suggestions, or content recommendations), your prompts and relevant context may be processed by the following third-party AI providers:
+        <ul>
+          <li><strong>Cloudflare Workers AI</strong> &mdash; Primary AI provider for text analysis and recommendations. Data is processed in transit and not retained after the response is generated.</li>
+          <li><strong>Groq</strong> &mdash; Fallback AI provider for complex reasoning tasks. Data is processed in transit and subject to Groq's data processing terms.</li>
+        </ul>
+        We do not send your personal profile information, messages, or location data to AI providers. Only the specific content you submit to AI-powered features is transmitted. No AI provider is used for advertising or user profiling.
+      </li>
+      <li><strong>Content Safety:</strong> Uploaded images are analysed for safety compliance using the HuggingFace Inference API. Image data is sent for classification only and is not stored by the provider after processing.</li>
+      <li><strong>Analytics and Crash Reporting:</strong> We use Sentry for crash reporting and performance monitoring. Crash data and performance metrics are sent to Sentry's servers. This data is not linked to your identity.</li>
     </ul>
-
     <h2>3. How We Use Your Information</h2>
     <p>We use the information we collect to:</p>
     <ul>
