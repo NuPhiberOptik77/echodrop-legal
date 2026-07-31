@@ -62,7 +62,7 @@
 <body>
   <div class="header">
     <h1>Privacy Policy</h1>
-    <p>Last updated: April 24, 2026</p>
+    <p>Last updated: July 31, 2026</p>
   </div>
   <div class="content">
     <a href="index.html" class="back">&larr; Back to Legal</a>
@@ -100,7 +100,8 @@
         We do not send your personal profile information, messages, or location data to AI providers. Only the specific content you submit to AI-powered features is transmitted. No AI provider is used for advertising or user profiling.
       </li>
       <li><strong>Content Safety:</strong> Uploaded images are analysed for safety compliance using the HuggingFace Inference API. Image data is sent for classification only and is not stored by the provider after processing.</li>
-      <li><strong>Analytics and Crash Reporting:</strong> We use Sentry for crash reporting and performance monitoring. Crash data and performance metrics are sent to Sentry's servers. This data is not linked to your identity.</li>
+      <li><strong>Product Analytics:</strong> We use <strong>PostHog</strong> (EU hosting, <code>eu.i.posthog.com</code>) to understand how features are used so we can improve them. PostHog receives in-app event data (for example: screens opened, features used, and when you sign in) together with your account's internal user identifier, your app version and platform. We do <strong>not</strong> send your email address, name, messages, or the content of your posts to PostHog. Events are linked to that internal identifier, which means they are associated with your account rather than anonymous. PostHog acts as our service provider and does not use the data for its own purposes or for advertising. You can turn this off at any time in <em>Settings &rarr; Privacy &rarr; Opt out of analytics</em>, which stops collection on that device immediately.</li>
+      <li><strong>Crash Reporting:</strong> We use <strong>Sentry</strong> for crash reporting and performance monitoring. Crash data and performance metrics are sent to Sentry's servers and are not linked to your identity.</li>
     </ul>
     <h2>3. How We Use Your Information</h2>
     <p>We use the information we collect to:</p>
@@ -150,7 +151,7 @@
       <li><strong>Safety data</strong> (moderation logs, contact rate logs): 90 days</li>
       <li><strong>Grooming/safety reports:</strong> 24 months (legal obligation for child protection)</li>
       <li><strong>Crash reports &amp; diagnostics:</strong> 90 days</li>
-      <li><strong>Analytics events:</strong> 12 months (anonymised)</li>
+      <li><strong>Analytics events:</strong> 12 months, after which they are deleted or aggregated so they no longer identify an individual account</li>
     </ul>
     <h3>Account Deletion Timeline</h3>
     <p>When you request account deletion:</p>
