@@ -257,6 +257,14 @@
   </div>
 
   <script>
+    // Project ref bhjncxwifgywgvnyoirv. The published copy of this page pointed
+    // at bnbmrfpkxotcjjwzxhzz.supabase.co — a project that no longer resolves
+    // (NXDOMAIN), so every submission failed with "Something went wrong" while
+    // LAUNCH_READINESS_FINAL.md recorded this flow as done and App Store
+    // 5.1.1(v) compliance was being claimed on it. Fixed 2026-07-25.
+    const DELETION_ENDPOINT =
+      'https://bhjncxwifgywgvnyoirv.supabase.co/functions/v1/web-account-deletion';
+
     const form = document.getElementById('delete-form');
     const confirmInput = document.getElementById('confirm');
     const submitBtn = document.getElementById('submit-btn');
@@ -290,33 +298,65 @@
       }
 
       try {
-        // Submit to Supabase Edge Function
-        const response = await fetch(
-          'https://bnbmrfpkxotcjjwzxhzz.supabase.co/functions/v1/web-account-deletion',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email,
-              reason: reason === 'other' ? otherReason : reason,
-            }),
-          }
-        );
+        // Step 1 of 2. This only ASKS for a confirmation email — it can no
+        // longer schedule anything on its own. Deletion happens when the user
+        // clicks the emailed link, which returns here with ?token=… and is
+        // handled by confirmDeletion() below.
+        // The endpoint replies identically whether or not the address exists,
+        // so this page cannot be used to test whether someone has an account.
+        const response = await fetch(`${DELETION_ENDPOINT}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            reason: reason === 'other' ? otherReason : reason,
+          }),
+        });
 
+        const data = await response.json().catch(() => ({}));
         if (!response.ok) {
-          const data = await response.json().catch(() => ({}));
           throw new Error(data.error || 'Request failed. Please try again.');
         }
 
-        // Show success
         document.getElementById('deletion-form').style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
+        const msg = document.getElementById('success-msg');
+        if (data.message) msg.textContent = data.message;
+        msg.style.display = 'block';
       } catch (err) {
         showError(err.message || 'Something went wrong. Please try again or contact support.');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Schedule Account Deletion';
       }
     }
+
+    // Step 2 of 2 — the emailed link lands back here with ?token=…
+    async function confirmDeletion(token) {
+      const form = document.getElementById('deletion-form');
+      const msg = document.getElementById('success-msg');
+      if (form) form.style.display = 'none';
+      msg.textContent = 'Confirming…';
+      msg.style.display = 'block';
+
+      try {
+        const response = await fetch(`${DELETION_ENDPOINT}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'This link is no longer valid.');
+        msg.textContent = data.message || 'Your account is scheduled for deletion.';
+      } catch (err) {
+        msg.style.display = 'none';
+        if (form) form.style.display = 'block';
+        showError(err.message || 'This link is invalid or has expired. Please request a new one.');
+      }
+    }
+
+    (function handleEmailedLink() {
+      const token = new URLSearchParams(window.location.search).get('token');
+      if (token) confirmDeletion(token);
+    })();
 
     function showError(msg) {
       errorMsg.textContent = msg;
