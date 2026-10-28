@@ -4,7 +4,7 @@ Public legal documents for EchoDrop, served by GitHub Pages at
 https://nuphiberoptik77.github.io/echodrop-legal/
 
 The app links to these from Settings → Legal and from both consent screens.
-The canonical list of URLs lives in `lib/legalUrls.ts` in the app repo — if you
+The canonical list of URLs lives in `lib/legalUrls.ts` in the app repo. If you
 move or rename a file here, update that constant in the same change.
 
 | File | Linked from the app as |
@@ -14,4 +14,3 @@ move or rename a file here, update that constant in the same change.
 | `community-guidelines.html` | `LEGAL_URLS.COMMUNITY_GUIDELINES` |
 | `account-deletion.html` | `LEGAL_URLS.ACCOUNT_DELETION` |
 | `child-safety-standards.html` | Google Play child-safety declaration |
-| `moderation-console.html` | Internal reference |
