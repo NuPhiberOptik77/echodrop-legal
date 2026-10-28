@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoDrop — Privacy Policy</title>
+  <title>EchoDrop Privacy Policy</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -62,13 +62,14 @@
 <body>
   <div class="header">
     <h1>Privacy Policy</h1>
-    <p>Last updated: July 31, 2026</p>
+    <p>Last updated: October 28, 2026</p>
   </div>
   <div class="content">
     <a href="index.html" class="back">&larr; Back to Legal</a>
 
     <h2>1. Introduction</h2>
     <p>Welcome to EchoDrop ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and related services (collectively, the "Service").</p>
+    <p id="controller"><strong>Who is responsible for your data:</strong> EchoDrop is operated by [OWNER: legal name], [OWNER: postal address]. We are the controller of the personal data described in this policy. For anything about your personal data, email <a href="mailto:privacy@getechodrop.com">privacy@getechodrop.com</a>.</p>
     <p>By using EchoDrop, you agree to the collection and use of information in accordance with this policy.</p>
 
     <h2>2. Information We Collect</h2>
@@ -85,7 +86,7 @@
     <ul>
       <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers, and mobile network information.</li>
       <li><strong>Usage Data:</strong> How you interact with the Service, including features used, content viewed, and time spent.</li>
-      <li><strong>Location Data:</strong> With your permission, we may collect precise or approximate location data to enable location-based features such as the Vibe Map.</li>
+      <li><strong>Location Data:</strong> With your permission, we may collect precise or approximate location data to enable location-based features such as the Vibe Map, checking in to a place, and local weather in Vibe Guides. Section 2.3 explains which services receive your coordinates.</li>
     </ul>
 
     <h3>2.3 Third-Party Services</h3>
@@ -94,26 +95,36 @@
       <li><strong>Authentication:</strong> If you sign in via third-party providers (e.g., Apple, Google), we receive basic profile information as permitted by your settings.</li>
       <li><strong>AI Services:</strong> EchoDrop uses artificial intelligence to power certain features. When you use AI-powered features (such as the Vibe Guide, mood-based suggestions, or content recommendations), your prompts and relevant context may be processed by the following third-party AI providers:
         <ul>
-          <li><strong>Cloudflare Workers AI</strong> &mdash; Primary AI provider for text analysis and recommendations. Data is processed in transit and not retained after the response is generated.</li>
-          <li><strong>Groq</strong> &mdash; Fallback AI provider for complex reasoning tasks. Data is processed in transit and subject to Groq's data processing terms.</li>
+          <li><strong>Cloudflare Workers AI:</strong> Primary AI provider for text analysis and recommendations. Data is processed in transit and not retained after the response is generated.</li>
+          <li><strong>Groq:</strong> Fallback AI provider for complex reasoning tasks. Data is processed in transit and subject to Groq's data processing terms.</li>
         </ul>
         We do not send your personal profile information, messages, or location data to AI providers. Only the specific content you submit to AI-powered features is transmitted. No AI provider is used for advertising or user profiling.
       </li>
       <li><strong>Content Safety:</strong> Uploaded images are analysed for safety compliance using the HuggingFace Inference API. Image data is sent for classification only and is not stored by the provider after processing.</li>
+      <li id="location-services"><strong>Place Names and Map Search (Nominatim):</strong> When you use the Vibe Map or check in to a place, the app sends your location coordinates directly from your phone to Nominatim, the place-name service run by the <strong>OpenStreetMap Foundation</strong>, to look up the name of the place (reverse geocoding). When you search the map, the app sends the words you search for. Today these coordinates are sent as precisely as your phone reports them. We do not send your name, username or account details, but because the request comes from your phone, Nominatim also receives your device's IP address. The OpenStreetMap Foundation's privacy policy is at <a href="https://osmfoundation.org/wiki/Privacy_Policy">osmfoundation.org/wiki/Privacy_Policy</a>.</li>
+      <li><strong>Weather (Open-Meteo):</strong> If you use Vibe Guides, the app asks your phone for a low-accuracy location and sends those coordinates, rounded to four decimal places, directly from your phone to <strong>Open-Meteo</strong> to get your local weather. If your phone cannot work out the name of your town itself, the app may also send your coordinates to Open-Meteo's place-name service, as precisely as your phone reports them. We do not send your name, username or account details, but Open-Meteo receives your device's IP address.</li>
       <li><strong>Product Analytics:</strong> We use <strong>PostHog</strong> (EU hosting, <code>eu.i.posthog.com</code>) to understand how features are used so we can improve them. PostHog receives in-app event data (for example: screens opened, features used, and when you sign in) together with your account's internal user identifier, your app version and platform. We do <strong>not</strong> send your email address, name, messages, or the content of your posts to PostHog. Events are linked to that internal identifier, which means they are associated with your account rather than anonymous. PostHog acts as our service provider and does not use the data for its own purposes or for advertising. You can turn this off at any time in <em>Settings &rarr; Privacy &rarr; Opt out of analytics</em>, which stops collection on that device immediately.</li>
       <li><strong>Crash Reporting:</strong> We use <strong>Sentry</strong> for crash reporting and performance monitoring. Crash data and performance metrics are sent to Sentry's servers and are not linked to your identity.</li>
     </ul>
     <h2>3. How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
+    <p>We use the information we collect for the purposes below. Data protection law requires us to have a legal reason, called a "lawful basis", for each one. The lawful basis we rely on is shown under each purpose.</p>
     <ul>
-      <li>Provide, maintain, and improve the Service</li>
-      <li>Personalise your experience, including content recommendations and the discovery feed</li>
-      <li>Enable social features such as tribes, posts, reactions, and messaging</li>
-      <li>Send you notifications related to your account and activity</li>
-      <li>Detect, investigate, and prevent fraud or abuse</li>
-      <li>Comply with legal obligations</li>
-      <li>Conduct analytics to understand how our Service is used</li>
+      <li>Provide, maintain, and improve the Service, including the location features you choose to use<br>
+        <em>Lawful basis:</em> to provide the Service you signed up for (performance of our contract with you). If you are under 18, we rely on our legitimate interests in providing the Service you asked for instead. Improving the Service relies on our legitimate interests in making EchoDrop work better.</li>
+      <li>Personalise your experience, including content recommendations and the discovery feed<br>
+        <em>Lawful basis:</em> our legitimate interests in showing you content you are likely to find relevant.</li>
+      <li>Enable social features such as tribes, posts, reactions, and messaging<br>
+        <em>Lawful basis:</em> performance of our contract with you. If you are under 18: our legitimate interests in providing the Service you asked for.</li>
+      <li>Send you notifications related to your account and activity<br>
+        <em>Lawful basis:</em> performance of our contract with you. If you are under 18: our legitimate interests in providing the Service you asked for. You can turn notifications off in your device or app settings.</li>
+      <li>Detect, investigate, and prevent fraud or abuse<br>
+        <em>Lawful basis:</em> our legitimate interests, and those of other users, in keeping EchoDrop safe, and our legal obligations where the law requires us to act.</li>
+      <li>Comply with legal obligations<br>
+        <em>Lawful basis:</em> compliance with a legal obligation.</li>
+      <li>Conduct analytics to understand how our Service is used<br>
+        <em>Lawful basis:</em> our legitimate interests in understanding how EchoDrop is used so we can improve it. You can opt out at any time (see "Product Analytics" in section 2.3).</li>
     </ul>
+    <p>Where we rely on legitimate interests, you have the right to object (see section 6).</p>
 
     <h2>4. How We Share Your Information</h2>
     <p>We do <strong>not</strong> sell your personal information. We may share information in the following circumstances:</p>
@@ -134,12 +145,16 @@
       <li><strong>Correction:</strong> Request correction of inaccurate data.</li>
       <li><strong>Deletion:</strong> Request deletion of your account and associated data.</li>
       <li><strong>Portability:</strong> Request a portable copy of your data.</li>
+      <li><strong>Restriction:</strong> Ask us to limit how we use your data while a concern is looked into.</li>
+      <li><strong>Objection:</strong> Object to our use of your data where we rely on legitimate interests.</li>
       <li><strong>Opt-Out:</strong> You can disable location services, notifications, and third-party integrations at any time through your device or app settings.</li>
     </ul>
-    <p>To exercise these rights, please contact us at the email address below.</p>
+    <p>To exercise these rights, email <a href="mailto:privacy@getechodrop.com">privacy@getechodrop.com</a>.</p>
+    <p id="complaints"><strong>Complaints:</strong> If you are unhappy with how we handle your personal data, you have the right to complain to the UK data protection regulator, the Information Commissioner's Office (ICO), at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk/make-a-complaint</a>. You can contact us first at privacy@getechodrop.com if you would like us to try to put things right, but you do not have to. If you live in the European Union, you can also complain to the data protection authority in the country where you live.</p>
 
     <h2>7. Children's Privacy</h2>
-    <p>EchoDrop is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that a child under 13 has provided us with personal information, we will promptly delete it. If you believe a child has provided us with personal data, please contact us.</p>
+    <p>EchoDrop is only for people aged 16 and over. We do not knowingly collect personal information from children under 16. We ask for your date of birth when you sign up. If we find that an account belongs to someone under 16, we lock the account and then delete it. If you believe a child under 16 has provided us with personal data, please email <a href="mailto:privacy@getechodrop.com">privacy@getechodrop.com</a>.</p>
+    <p>Accounts of users aged 16 and 17 have extra protections, described in our <a href="child-safety-standards.html">Child Safety Standards</a>.</p>
 
     <h2>8. Data Retention</h2>
     <p>We retain your information for as long as your account is active or as needed to provide the Service. Specific retention periods:</p>
@@ -170,8 +185,10 @@
     <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy within the app or via email. Your continued use of the Service after changes constitutes acceptance of the updated policy.</p>
 
     <h2>11. Contact Us</h2>
-    <p>If you have questions or concerns about this Privacy Policy, please contact us at:</p>
-    <p><strong>Email:</strong> alistairakrofimanteyabram@gmail.com</p>
+    <p>If you have questions or concerns about this Privacy Policy, or want to exercise your rights, please contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:privacy@getechodrop.com">privacy@getechodrop.com</a></p>
+    <p><strong>Post:</strong> [OWNER: legal name], [OWNER: postal address]</p>
+    <p>For help using the app, email <a href="mailto:help@getechodrop.com">help@getechodrop.com</a>.</p>
   </div>
   <div class="footer">&copy; 2026 EchoDrop. All rights reserved.</div>
 </body>

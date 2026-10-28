@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delete Your Account — EchoDrop</title>
+  <title>Delete Your EchoDrop Account</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -252,13 +252,13 @@
   </div>
 
   <div class="footer">
-    <p>Need help? Contact <a href="mailto:alistairakrofimanteyabram@gmail.com">alistairakrofimanteyabram@gmail.com</a></p>
-    <p style="margin-top: 4px;"><a href="https://nuphiberoptik77.github.io/echodrop-legal/privacy-policy.html">Privacy Policy</a> · <a href="https://nuphiberoptik77.github.io/echodrop-legal/terms-of-service.html">Terms of Service</a></p>
+    <p>Need help? Contact <a href="mailto:help@getechodrop.com">help@getechodrop.com</a></p>
+    <p style="margin-top: 4px;"><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a></p>
   </div>
 
   <script>
     // Project ref bhjncxwifgywgvnyoirv. The published copy of this page pointed
-    // at bnbmrfpkxotcjjwzxhzz.supabase.co — a project that no longer resolves
+    // at bnbmrfpkxotcjjwzxhzz.supabase.co, a project that no longer resolves
     // (NXDOMAIN), so every submission failed with "Something went wrong" while
     // LAUNCH_READINESS_FINAL.md recorded this flow as done and App Store
     // 5.1.1(v) compliance was being claimed on it. Fixed 2026-07-25.
@@ -298,7 +298,7 @@
       }
 
       try {
-        // Step 1 of 2. This only ASKS for a confirmation email — it can no
+        // Step 1 of 2. This only ASKS for a confirmation email; it can no
         // longer schedule anything on its own. Deletion happens when the user
         // clicks the emailed link, which returns here with ?token=… and is
         // handled by confirmDeletion() below.
@@ -329,7 +329,7 @@
       }
     }
 
-    // Step 2 of 2 — the emailed link lands back here with ?token=…
+    // Step 2 of 2: the emailed link lands back here with ?token=…
     async function confirmDeletion(token) {
       const form = document.getElementById('deletion-form');
       const msg = document.getElementById('success-msg');
