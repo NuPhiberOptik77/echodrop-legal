@@ -62,7 +62,7 @@
 <body>
   <div class="header">
     <h1>Privacy Policy</h1>
-    <p>Last updated: 3 November 2026</p>
+    <p>Last updated: 21 November 2026</p>
   </div>
   <div class="content">
     <a href="index.html" class="back">&larr; Back to Legal</a>
@@ -80,6 +80,7 @@
       <li><strong>User Content:</strong> Posts, photos, videos, comments, reactions, and other content you create within the app.</li>
       <li><strong>Tribe Information:</strong> Data related to tribes you create or join, including tribe names, descriptions, cover photos, and membership.</li>
       <li><strong>Communications:</strong> Messages sent through direct messaging and tribe channels.</li>
+      <li><strong>Contacts (only if you use Find Friends):</strong> Codes made on your phone from the email addresses in your contacts, as explained in section 2.4.</li>
       <li id="signup-country"><strong>Your country when you first give your age:</strong> When you first tell us your age group, we record the two-letter code of the country your device's region is set to (for example 'IN'), and where that code came from. We use it only to apply that country's minimum age and to keep a record that we did. We do not use it for advertising or recommendations, and we never show it to anyone else. Our lawful basis is our legitimate interest in keeping people below the minimum age off EchoDrop, and our legal obligations where a law requires age checks. It is stored with Supabase in the UK. We keep it while your account exists and delete it with your account. It is included when you download your data.</li>
     </ul>
 
@@ -101,14 +102,20 @@
         </ul>
         We do not send your personal profile information, messages, or location data to AI providers. Only the specific content you submit to AI-powered features is transmitted. No AI provider is used for advertising or user profiling.
       </li>
-      <li><strong>Content Safety:</strong> Uploaded images are analysed for safety compliance using the HuggingFace Inference API. Image data is sent for classification only and is not stored by the provider after processing.</li>
+      <li><strong>Content Safety:</strong> Uploaded images are checked for nudity by an image safety model that EchoDrop runs itself, on our own backend, which Supabase hosts for us. The model is our own copy of an openly published model, so images are not sent to any other company for this check.</li>
       <li id="location-services"><strong>Place Names and Map Search (Nominatim):</strong> When you use the Vibe Map or check in to a place, the app sends your location coordinates directly from your phone to Nominatim, the place-name service run by the <strong>OpenStreetMap Foundation</strong>, to look up the name of the place (reverse geocoding). When you search the map, the app sends the words you search for. The app rounds these coordinates to two decimal places (roughly 1 km) before sending them, so Nominatim learns your approximate area, not your exact position. We do not send your name, username or account details, but because the request comes from your phone, Nominatim also receives your device's IP address. The OpenStreetMap Foundation's privacy policy is at <a href="https://osmfoundation.org/wiki/Privacy_Policy">osmfoundation.org/wiki/Privacy_Policy</a>.</li>
       <li><strong>Map images (OpenStreetMap and Esri):</strong> To draw the Vibe Map, your phone downloads map images for the area on screen from OpenStreetMap's tile servers, or from Esri for satellite view. These requests show the area you are viewing and your device's IP address, but not your name or account details.</li>
       <li><strong>Weather (Open-Meteo):</strong> If you use Guides, the app asks your phone for a low-accuracy location and sends those coordinates, rounded to two decimal places (roughly 1 km), directly from your phone to <strong>Open-Meteo</strong> to get your local weather. If your phone cannot work out the name of your town itself, the app may also send the same rounded coordinates to Open-Meteo's place-name service. We do not send your name, username or account details, but Open-Meteo receives your device's IP address.</li>
       <li><strong>GIF search (KLIPY):</strong> When you search for a GIF, the app sends the words you search for, with a strict content filter, directly from your phone to <strong>KLIPY</strong> to find matching GIFs. We do not send your name, username or account details, but KLIPY receives your device's IP address.</li>
-      <li><strong>Product Analytics:</strong> We use <strong>PostHog</strong> (EU hosting, <code>eu.i.posthog.com</code>) to understand how features are used so we can improve them. PostHog receives in-app event data (for example: screens opened, features used, and when you sign in) together with your account's internal user identifier, your app version and platform. We do <strong>not</strong> send your email address, name, messages, or the content of your posts to PostHog. Events are linked to that internal identifier, which means they are associated with your account rather than anonymous. PostHog acts as our service provider and does not use the data for its own purposes or for advertising. You can turn this off at any time in <em>Settings &rarr; Privacy &rarr; Opt out of analytics</em>, which stops collection on that device immediately.</li>
+      <li id="analytics"><strong>Product Analytics (off unless you turn it on):</strong> We use <strong>PostHog</strong> (EU hosting, <code>eu.i.posthog.com</code>) to count how the app is used, such as which screens open and where things go wrong, so we can improve it. Nothing is counted unless you say yes: the app asks adults once, and you can change your answer at any time in <em>Settings &rarr; Privacy Settings &rarr; Share app usage statistics</em>. Turning it off stops it straight away, and anything not yet sent is thrown away. We only count people we have confirmed are 18 or over, so nothing is counted for anyone under 18, or for anyone whose age we have not confirmed, whatever they answer. The counts are <strong>not</strong> linked to your account: we do not send PostHog your account's identifier, your email address, name or username, your messages, what you write or post, your mood or your location, and the app does not keep an identifier for PostHog from one visit to the next. Each event carries only its name, short labels and counts, your app version, and technical details such as your phone's operating system. PostHog receives your device's IP address with each request, but we have turned off its location lookup. PostHog acts as our service provider and does not use the data for its own purposes or for advertising. With the same answer, Sentry (see Crash Reporting below) also counts how many visits to the app end in a crash. It does this in the United States, and these counts are not linked to your account either. We keep a record of your answer, and when you gave it, with your account, so that we can show what you agreed to.</li>
       <li><strong>Crash Reporting:</strong> We use <strong>Sentry</strong> for crash reporting and performance monitoring. Crash data and performance metrics are sent to Sentry's servers and are not linked to your identity.</li>
     </ul>
+    <h3 id="find-friends">2.4 Contacts and Find Friends</h3>
+    <p>Find Friends is optional. If you use it and allow EchoDrop to read your contacts, your phone turns each email address in your contacts into a one-way code (a "hash") before anything is sent. Your address book itself never leaves your phone, and we do not read or send phone numbers. On our backend, which Supabase hosts for us, we compare the codes with the codes of adult EchoDrop accounts that have not turned off Discoverable by Contacts, show you any matches, and throw the codes away straight after matching. We keep only how many codes were checked and how many matched, with your account. Nobody under 18 can be found through Find Friends.</p>
+    <p>If your email address is in someone's contacts, a code made from it may pass through our systems for a moment in this way. We cannot contact you, and we keep nothing that identifies you. A code like this can sometimes be matched back to an email address by someone who already has a list of addresses, which is why we delete the codes at once.</p>
+    <p><strong>Being found:</strong> if you are 18 or over, people who have your email address in their contacts can find your account through Find Friends. This is on by default. You can turn it off at any time in <em>Settings &rarr; Privacy Settings &rarr; Discoverable by Contacts</em>.</p>
+    <p>Our lawful basis is your consent for reading your contacts, which you can withdraw at any time in your iPhone's settings, and our legitimate interests in helping people find people they know, for the codes made from your contacts' email addresses.</p>
+
     <h2>3. How We Use Your Information</h2>
     <p>We use the information we collect for the purposes below. Data protection law requires us to have a legal reason, called a "lawful basis", for each one. The lawful basis we rely on is shown under each purpose.</p>
     <ul>
@@ -125,7 +132,7 @@
       <li>Comply with legal obligations<br>
         <em>Lawful basis:</em> compliance with a legal obligation.</li>
       <li>Conduct analytics to understand how our Service is used<br>
-        <em>Lawful basis:</em> our legitimate interests in understanding how EchoDrop is used so we can improve it. You can opt out at any time (see "Product Analytics" in section 2.3).</li>
+        <em>Lawful basis:</em> your consent, which you give by saying yes to usage statistics. You can withdraw it at any time, and withdrawing does not affect counting done before then (see "Product Analytics" in section 2.3).</li>
     </ul>
     <p>Where we rely on legitimate interests, you have the right to object (see section 6).</p>
 
@@ -170,7 +177,7 @@
     <h2>8. Data Retention</h2>
     <p>We retain your information for as long as your account is active or as needed to provide the Service. Specific retention periods:</p>
     <ul>
-      <li><strong>Account data</strong> (profile, email, preferences): Duration of account + 30 days after deletion request</li>
+      <li><strong>Account data</strong> (profile, email, preferences): Duration of account. It is deleted when your account is deleted, as set out below, except that we keep your email address only until the deletion has finished, and never more than 30 days.</li>
       <li><strong>Messages:</strong> Duration of conversation. Unsent messages are removed from view but retained for safety investigations for 90 days.</li>
       <li><strong>Capsules:</strong> Auto-expire after 24 hours, or until manually deleted</li>
       <li><strong>Content</strong> (posts, voice notes, articles): Duration of account or until user deletes</li>
@@ -179,15 +186,16 @@
       <li><strong>Crash reports &amp; diagnostics:</strong> 90 days</li>
       <li><strong>Analytics events:</strong> 12 months, after which they are deleted or aggregated so they no longer identify an individual account</li>
     </ul>
-    <h3>Account Deletion Timeline</h3>
-    <p>When you request account deletion:</p>
+    <h3 id="account-deletion">Account Deletion Timeline</h3>
+    <p>You can delete your account in the app, in <em>Settings &rarr; Account Information &rarr; Delete account</em>. When you ask:</p>
     <ol>
-      <li><strong>Days 1-7 (Grace Period):</strong> Account marked for deletion. You can cancel and recover your account.</li>
-      <li><strong>Day 7 (Soft Deletion):</strong> Account deactivated. Profile hidden, content removed from feeds.</li>
-      <li><strong>Day 37 (Hard Deletion):</strong> All personal data permanently removed from primary database.</li>
-      <li><strong>Day 67 (Backup Purge):</strong> Data removed from encrypted backups.</li>
+      <li><strong>Days 1 to 7 (grace period):</strong> Your account is scheduled for deletion 7 days later, and the app shows you the date. Until then your account stays as it is, and you can cancel the deletion in the app at any time.</li>
+      <li><strong>After the 7 days:</strong> In our next nightly deletion run, we delete your account and the information linked to it from our database, including your profile, posts, capsules, messages, connections, likes, comments and other interactions, apart from the safety records described below.</li>
+      <li><strong>Shortly after that:</strong> We delete your files (photos, videos, voice notes and other uploads) from storage and ask PostHog to delete any analytics records that older versions of the app linked to your account. If you signed in with Apple, we also ask Apple to disconnect EchoDrop from your Apple Account (the app may ask you to confirm with Apple once so that we can).</li>
     </ol>
-    <p>After deletion, we retain only: anonymised safety flags, grooming reports (legal obligation), and aggregated analytics (no personal identifiers).</p>
+    <p>A deletion can take longer while a safety report or a review about your account is open.</p>
+    <p>Copies made before the deletion can remain in our encrypted database backups. If we ever restore a backup, we delete those accounts again.</p>
+    <p>After deletion we keep only: reports and safety alerts that involve your account, including reports you made, and copies of the messages and posts they are about, for up to 12 months (24 months when a report is about a child's safety, and longer only while the law requires us to keep evidence); records of contact we stopped between an adult and someone under 18, for 12 months; a record that the account was deleted and when, for 2 years; your username for 60 days, so that nobody else can take it straight away; if the account was banned, one-way codes made from its email address and Apple or Google sign-in, for 3 years, so that the same person cannot simply sign up again; and analytics counts that were never linked to you.</p>
 
     <h2>9. International Data Transfers</h2>
     <p>Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place for such transfers in compliance with applicable data protection laws.</p>
